@@ -1,0 +1,9 @@
+.DS_Store
+/gitconfig.user
+
+#/PackagePOC/build
+#/PackagePOC/.swiftpm/xcode/package.xcworkspace/xcuserdata
+#/PackagePOC/.swiftpm/xcode/xcuserdata
+
+/template/NewConcept.xcodeproj/xcuserdata
+/template/NewConcept.xcodeproj/project.xcworkspace/xcuserdata

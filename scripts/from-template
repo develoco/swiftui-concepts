@@ -1,0 +1,72 @@
+#!/bin/zsh
+
+#
+# Usage:
+#
+# Create from default template:
+#
+# ./scripts/from-template My-Concept myconcept
+#
+# Create from another project/template:
+#
+# ./scripts/from-template Your-Concept yourconcept My-Concept myconcept
+#
+
+# Specify destination as parameter
+dest_kebab=${1:-My-Concept}
+
+# Do not Sanitize to kebab-lower-case
+dest_kebab_lower=$dest_kebab:l
+
+# Folder (second argument)
+dest_folder=${2:-$dest_kebab_lower}
+
+# Template (or source)
+source_kebab=${3:-New-Concept}
+
+# Do not Sanitize to kebab-lower-case
+source_kebab_lower=$source_kebab:l
+
+# Folder (second argument)
+source_folder=${4:-template}
+
+# Another way: ${dest_kebab:gs/the/THE}
+dest_spaces=${dest_kebab//\-/\ }
+source_spaces=${source_kebab//\-/\ }
+
+# lowercase
+dest_lower=${dest_kebab_lower//\-/}
+source_lower=${source_kebab_lower//\-/}
+
+# CamelCase
+dest_camel=${dest_spaces//\ /}
+source_camel=${source_spaces//\ /}
+
+# .gitignore entries
+echo "/$dest_folder/$dest_camel.xcodeproj/xcuserdata" >> .gitignore
+echo "/$dest_folder/$dest_camel.xcodeproj/project.xcworkspace/xcuserdata" >> .gitignore
+
+# Clone template
+cp -R -p $source_folder $dest_folder
+cd $dest_folder
+
+# Clean up
+rm -rf .DS_Store "${source_camel}.xcodeproj/xcuserdata" "${source_camel}.xcodeproj/project.xcworkspace/xcuserdata"
+
+# Change contents
+find . -type f ! \( -name '*.gif' -o -name '*.gpg' -o -path '*/\.git/*' -o -path '*/scripts/*' -o -path '*/xcuserdata/*' \) -exec sed -i '' -e "s/${source_camel}/${dest_camel}/g" {} +
+
+find . -type f ! \( -name '*.gif' -o -name '*.gpg' -o -path '*/\.git/*' -o -path '*/scripts/*' -o -path '*/xcuserdata/*' \) -exec sed -i '' -e "s/${source_lower}/${dest_lower}/g" {} +
+
+# Change file and folder names
+autoload zmv
+setopt EXTENDED_GLOB
+zmv "(**/)(*$source_camel*)(#qD)" "\$1\${2//$source_camel/$dest_camel}"
+
+
+# Print verification script
+echo "# Verify using the following lines:"
+echo
+echo "cd ${dest_folder} &&"
+echo "    grep -r -E -i '(${source_camel}|${source_lower})' . &&"
+echo "    autoload zmv && setopt EXTENDED_GLOB && zmv -n '(**/)(*$source_camel*)(#qD)' '\$1\${2//$source_camel/$dest_camel}'"
