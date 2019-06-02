@@ -5,7 +5,12 @@ struct Home: View {
   var body: some View {
     NavigationView {
       VStack(spacing: 20) {
-        NavigationLink("On/off dashboard", destination: OnOffDashboard())
+        NavigationLink("Subject test ", destination: SubjectTest()
+          .navigationBarTitle("Subject test")
+        )
+        NavigationLink("On/off dashboard", destination: OnOffDashboard()
+          .navigationBarTitle("On/Off")
+        )
         NavigationLink("Debounced search box",
           destination:
             DebouncedSearchBox()

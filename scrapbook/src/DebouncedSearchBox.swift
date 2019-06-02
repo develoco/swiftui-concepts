@@ -1,7 +1,23 @@
 import SwiftUI
+import Combine
+
+class SearchModel: ObservableObject {
+  @Published var searchBox = ""
+}
 
 struct DebouncedSearchBox: View {
 
+  var debouncedSearchBox: AnyPublisher<String, Never> {
+    searchModel.$searchBox
+      .debounce(for: 1, scheduler: DispatchQueue.global(qos: .userInitiated))
+      //.subscribe(on: DispatchQueue.global(qos: .userInitiated)) // does not fix debounce
+      .receive(on: RunLoop.main) // useful only when using delay/debounce
+      .removeDuplicates()
+      .drop { $0.count < 3 }
+      .eraseToAnyPublisher()
+  }
+
+  @ObservedObject var searchModel = SearchModel()
   @State var query = ""
 
   @State var allItems = [
@@ -21,7 +37,7 @@ struct DebouncedSearchBox: View {
 
   var body: some View {
     VStack {
-      TextField("Search for…", text: $query)
+      TextField("Search for…", text: $searchModel.searchBox)
         .padding()
       List {
         ForEach(filteredItems, id: \.self) {
@@ -29,16 +45,9 @@ struct DebouncedSearchBox: View {
         }
       }
     }
-    .onReceive(
-      query
-        .publisher
-        //.delay(for: .seconds(1), scheduler: DispatchQueue.global(qos: .userInitiated)) // works
-        //.debounce(for: .seconds(1), scheduler: DispatchQueue.global(qos: .userInitiated)) // does not work
-        //.subscribe(on: DispatchQueue.global(qos: .userInitiated)) // does not fix debounce
-        .receive(on: RunLoop.main) // useful only when using delay/debounce
-        .reduce("") { "\($0)\($1)" }
-    ) {
-      print("Searching for \"\($0)\" \"\(self.query)\" ")
+    .onReceive(debouncedSearchBox) {
+      print("Receiving query \($0)")
+      self.query = $0
     }
     .textFieldStyle(RoundedBorderTextFieldStyle())
   }
