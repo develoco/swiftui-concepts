@@ -1,3 +1,3 @@
-# New Concept
+# Style guide
 
-Explain your New Concept here
+A dummy app with a style guide.
