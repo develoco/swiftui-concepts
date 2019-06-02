@@ -1,7 +1,46 @@
-# SYW Internal Monorepo
+# SwiftUI Concepts
 
-Add a folder and a readme for each POC.
+A set of proo-of-concept (PoC) projects centered around the SwiftUI framework.
 
-Don't forget to add the corresponding `.gitignore` entries at the root of the monorepo.
+## Repo structure
 
-If you want to sign your commits (recommended) follow the instructions in `gitconfig`.
+All projects are added as a sub-folder at the root of the repository.
+
+Special folders are `script` and `template`.
+
+## Creating a new project
+
+Create from default template:
+
+    ./scripts/from-template My-Concept myconcept
+
+### Renaming a project
+
+Create from another project/template:
+
+    ./scripts/from-template Your-Concept yourconcept My-Concept myconcept
+
+## Signing your commits
+
+Create a `gitconfig.user` file filling in the following fields:
+
+```
+[user]
+  signingkey = ABCDEF012345678
+  name = YOUR_USERNAME
+  email = YOUR_USERNAME@users.noreply.github.com
+```
+
+Include your configuration.
+
+    git config include.path ../gitconfig
+
+To encrypt your configuration.
+
+    gpg --output gitconfig.YOUR_USERNAME.gpg --encrypt --recipient YOUR_USERNAME gitconfig.user
+
+To decrypt your configuration.
+
+    gpg --output gitconfig.user --decrypt gitconfig.YOUR_USERNAME.gpg
+
+Where `YOUR_USERNAME` is your user name.
