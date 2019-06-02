@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6222257A23AD1AAB0047298C /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6222257923AD1AAB0047298C /* OpenSans-Regular.ttf */; };
-		6222257C23AD1B560047298C /* View+customFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222257B23AD1B560047298C /* View+customFont.swift */; };
-		6222257E23AD1B900047298C /* Text+textStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222257D23AD1B900047298C /* Text+textStyle.swift */; };
-		6222258023AD1C1E0047298C /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222257F23AD1C1E0047298C /* TextStyle.swift */; };
-		6222258223AD1C3B0047298C /* TextStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222258123AD1C3B0047298C /* TextStyleModifier.swift */; };
 		6254201D2399747B007DA5F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254201C2399747B007DA5F2 /* AppDelegate.swift */; };
 		6254201F2399747B007DA5F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6254201E2399747B007DA5F2 /* SceneDelegate.swift */; };
 		625420212399747B007DA5F2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625420202399747B007DA5F2 /* Home.swift */; };
@@ -21,12 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6222257923AD1AAB0047298C /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		6222257B23AD1B560047298C /* View+customFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+customFont.swift"; sourceTree = "<group>"; };
-		6222257D23AD1B900047298C /* Text+textStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+textStyle.swift"; sourceTree = "<group>"; };
-		6222257F23AD1C1E0047298C /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
-		6222258123AD1C3B0047298C /* TextStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleModifier.swift; sourceTree = "<group>"; };
-		625420192399747B007DA5F2 /* TextStyles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextStyles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		625420192399747B007DA5F2 /* PreviewStates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreviewStates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6254201C2399747B007DA5F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6254201E2399747B007DA5F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		625420202399747B007DA5F2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -48,14 +38,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6222257823AD1A9C0047298C /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				6222257923AD1AAB0047298C /* OpenSans-Regular.ttf */,
-			);
-			path = fonts;
-			sourceTree = "<group>";
-		};
 		625420102399747B007DA5F2 = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +50,7 @@
 		6254201A2399747B007DA5F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				625420192399747B007DA5F2 /* TextStyles.app */,
+				625420192399747B007DA5F2 /* PreviewStates.app */,
 			);
 			name = Products;
 			path = ..;
@@ -78,10 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				625420202399747B007DA5F2 /* Home.swift */,
-				6222258123AD1C3B0047298C /* TextStyleModifier.swift */,
-				6222257F23AD1C1E0047298C /* TextStyle.swift */,
-				6222257B23AD1B560047298C /* View+customFont.swift */,
-				6222257D23AD1B900047298C /* Text+textStyle.swift */,
 				62542030239974A9007DA5F2 /* support */,
 				62542031239974BE007DA5F2 /* assets */,
 				625420242399747E007DA5F2 /* preview */,
@@ -110,7 +88,6 @@
 		62542031239974BE007DA5F2 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				6222257823AD1A9C0047298C /* fonts */,
 				625420222399747E007DA5F2 /* Assets.xcassets */,
 				625420272399747E007DA5F2 /* LaunchScreen.storyboard */,
 			);
@@ -120,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		625420182399747B007DA5F2 /* TextStyles */ = {
+		625420182399747B007DA5F2 /* PreviewStates */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6254202D2399747E007DA5F2 /* Build configuration list for PBXNativeTarget "TextStyles" */;
+			buildConfigurationList = 6254202D2399747E007DA5F2 /* Build configuration list for PBXNativeTarget "PreviewStates" */;
 			buildPhases = (
 				625420152399747B007DA5F2 /* Sources */,
 				625420162399747B007DA5F2 /* Frameworks */,
@@ -132,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = TextStyles;
+			name = PreviewStates;
 			productName = "OnBoard Sheet POC";
-			productReference = 625420192399747B007DA5F2 /* TextStyles.app */;
+			productReference = 625420192399747B007DA5F2 /* PreviewStates.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -152,7 +129,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 625420142399747B007DA5F2 /* Build configuration list for PBXProject "TextStyles" */;
+			buildConfigurationList = 625420142399747B007DA5F2 /* Build configuration list for PBXProject "PreviewStates" */;
 			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -165,7 +142,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				625420182399747B007DA5F2 /* TextStyles */,
+				625420182399747B007DA5F2 /* PreviewStates */,
 			);
 		};
 /* End PBXProject section */
@@ -177,7 +154,6 @@
 			files = (
 				625420292399747E007DA5F2 /* LaunchScreen.storyboard in Resources */,
 				625420262399747E007DA5F2 /* PreviewAssets.xcassets in Resources */,
-				6222257A23AD1AAB0047298C /* OpenSans-Regular.ttf in Resources */,
 				625420232399747E007DA5F2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,11 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6222258023AD1C1E0047298C /* TextStyle.swift in Sources */,
-				6222258223AD1C3B0047298C /* TextStyleModifier.swift in Sources */,
-				6222257C23AD1B560047298C /* View+customFont.swift in Sources */,
 				6254201D2399747B007DA5F2 /* AppDelegate.swift in Sources */,
-				6222257E23AD1B900047298C /* Text+textStyle.swift in Sources */,
 				6254201F2399747B007DA5F2 /* SceneDelegate.swift in Sources */,
 				625420212399747B007DA5F2 /* Home.swift in Sources */,
 			);
@@ -340,7 +312,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diegolavalle.poc.textstyles;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diegolavalle.poc.template;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -360,7 +332,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diegolavalle.poc.textstyles;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diegolavalle.poc.template;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,7 +342,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		625420142399747B007DA5F2 /* Build configuration list for PBXProject "TextStyles" */ = {
+		625420142399747B007DA5F2 /* Build configuration list for PBXProject "PreviewStates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6254202B2399747E007DA5F2 /* Debug */,
@@ -379,7 +351,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6254202D2399747E007DA5F2 /* Build configuration list for PBXNativeTarget "TextStyles" */ = {
+		6254202D2399747E007DA5F2 /* Build configuration list for PBXNativeTarget "PreviewStates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6254202E2399747E007DA5F2 /* Debug */,
