@@ -325,14 +325,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = src/preview;
-				DEVELOPMENT_TEAM = 9EMZ8KV4WF;
+				DEVELOPMENT_TEAM = 92XVGR6M56;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaspardbruno.etudes.tagclouddata;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diegolavalle.poc.navigationflow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -345,14 +345,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = src/preview;
-				DEVELOPMENT_TEAM = 9EMZ8KV4WF;
+				DEVELOPMENT_TEAM = 92XVGR6M56;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaspardbruno.etudes.tagclouddata;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diegolavalle.poc.navigationflow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
