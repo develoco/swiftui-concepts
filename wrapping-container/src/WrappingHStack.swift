@@ -1,64 +1,25 @@
 import SwiftUI
 
-struct Block: View {
-
-  static let width: CGFloat = 100
-  var color: Color
-
-  var body: some View {
-    color.frame(width: Self.width, height: 50)
-  }
-}
-
 struct WrappingHStack<Content: View>: View {
 
-  var width: CGFloat = 350
+  var alignment: VerticalAlignment
+  var spacing: CGFloat
   var content: [Content]
-
-  var blocksPerLine: Int {
-    Int(width / Block.width)
-  }
   
-  var wholeLines: Int {
-    content.count / blocksPerLine
-  }
-  
-  var hasExtraLine: Bool {
-    content.count - blocksPerLine * wholeLines > 0
-  }
-  
-  var lines: Int {
-    wholeLines + (hasExtraLine ? 1 : 0)
-  }
-  
-  var limits: [Int] {
-    (0..<lines).map { line in
-      blocksPerLine * line
-    }
-  }
-  
-  func lowerLimit(_ index: Int) -> Int {
-    limits[index]
-  }
-
-  func upperLimit(_ index: Int) -> Int {
-    if index == lines - 1 {
-      return content.count
-    }
-    return limits[index + 1]
+  @inlinable public init(alignment: VerticalAlignment = .center, spacing: CGFloat = 0, content: () -> [Content]) {
+    self.alignment = alignment
+    self.spacing = spacing
+    self.content = content()
   }
 
   var body: some View {
-    VStack {
-      ForEach(0..<lines, id: \.self) { line in
-        HStack(spacing: 0) {
-          ForEach(self.lowerLimit(line) ..< self.upperLimit(line), id: \.self) { i in
-            self.content[i]
-          }
-        }
-        .frame(width: self.width, alignment: .leading)
-        .clipped()
-      }
+    GeometryReader { proxy in
+      WrappingStack (
+        width: proxy.frame(in: .global).width,
+        verticalAlignment: self.alignment,
+        spacing: self.spacing,
+        content: self.content
+      )
     }
   }
 }
@@ -66,19 +27,24 @@ struct WrappingHStack<Content: View>: View {
 struct WrappingHStack_Previews: PreviewProvider {
 
   static var previews: some View {
-    WrappingHStack(content: [
-      Block(color: .red),
-      Block(color: .green),
-      Block(color: .red),
-      Block(color: .green),
-      Block(color: .red),
-      Block(color: .green),
-      Block(color: .red),
-      Block(color: .green),
-      Block(color: .red),
-      Block(color: .green),
-      Block(color: .red),
-      //Block(color: .blue),
-    ])
+    VStack {
+      Text("Header")
+      Spacer()
+      WrappingHStack(alignment: .bottom, spacing: 10) {[
+          Color.red.frame(width: 100, height: 50),
+          Color.gray.frame(width: 80, height: 50),
+          Color.green.frame(width: 150, height: 30),
+          Color.yellow.frame(width: 150, height: 70),
+          Color.orange.frame(width: 50, height: 50),
+          Color.purple.frame(width: 50, height: 50),
+          Color.blue.frame(width: 50, height: 50),
+          Color.gray.frame(width: 50, height: 50),
+          Color.green.frame(width: 50, height: 50),
+      ]}
+      .frame(width: 350)
+      .border(Color.black, width: 1)
+      Spacer()
+      Text("Footer")
+    }
   }
 }
