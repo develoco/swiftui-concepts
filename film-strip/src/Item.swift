@@ -1,19 +1,26 @@
 import SwiftUI
 
-struct Item: View {
+struct Item: View, Identifiable {
 
   var label: String
+  @State var isOn = false
+  var id: some Hashable {
+    label.hashValue
+  }
 
   var body: some View {
     ZStack {
       Text("\(label)")
       .font(.title)
     }
-    
     .foregroundColor(.white)
     .frame(width: 50, height: 50)
     .border(Color.accentColor, width: 1)
-    .background(Color.gray)
+    .background(isOn ? Color.accentColor : Color.gray)
+    .onTapGesture {
+      self.isOn.toggle()
+    }
+    .id(label.hashValue)
   }
 }
 

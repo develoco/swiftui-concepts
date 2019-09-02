@@ -2,9 +2,10 @@ import SwiftUI
 
 struct Home: View {
 
-  let all = ["A", "B", "C", "D"]
+  let all:[Item] = ["A", "B", "C", "D"].map { Item(label: $0) }
+  static let placeholder = Item(label: "?")
   @State var current = 0
-  @State var tempItems = ["?", "A", "?"]
+  @State var tempItems:[Item] = [placeholder, placeholder, placeholder]
   @State var tempOffset: CGFloat = 0
 
   var up: some View {
@@ -18,7 +19,7 @@ struct Home: View {
     HStack {
       Button("Next") {
         self.tempOffset = 0
-        self.tempItems[0] = "?"
+        self.tempItems[0] = Self.placeholder
         self.tempItems[1] = self.all[self.current]
         self.tempItems[2] = self.all[self.current + 1]
         withAnimation {
@@ -30,7 +31,7 @@ struct Home: View {
         self.tempOffset = 0
         self.tempItems[0] = self.all[self.current - 1]
         self.tempItems[1] = self.all[self.current]
-        self.tempItems[2] = "?"
+        self.tempItems[2] = Self.placeholder
         withAnimation {
           self.tempOffset = 50
         }
@@ -40,7 +41,7 @@ struct Home: View {
         self.tempOffset = 0
         self.tempItems[0] = self.all[0]
         self.tempItems[1] = self.all[self.current]
-        self.tempItems[2] = "?"
+        self.tempItems[2] = Self.placeholder
         withAnimation {
           self.tempOffset = 50
         }
