@@ -71,9 +71,9 @@
 		6254201B2399747B007DA5F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				625420202399747B007DA5F2 /* Home.swift */,
 				62C5998023DB5241007FBDD2 /* models */,
 				62C5997F23DB5233007FBDD2 /* elements */,
-				625420202399747B007DA5F2 /* Home.swift */,
 				62542030239974A9007DA5F2 /* support */,
 				62542031239974BE007DA5F2 /* assets */,
 				625420242399747E007DA5F2 /* preview */,

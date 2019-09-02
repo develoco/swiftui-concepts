@@ -10,13 +10,13 @@ struct Enemy: View {
         Image(systemName: "ant")
         .resizable()
         .aspectRatio(contentMode: .fit)
-        .frame(width: 80)
+        .frame(width: 15)
         .foregroundColor(.red)
       } else {
         Image(systemName: "burst")
         .resizable()
         .aspectRatio(contentMode: .fit)
-        .frame(width: 100)
+        .frame(width: 20)
         .foregroundColor(.yellow)
       }
     }

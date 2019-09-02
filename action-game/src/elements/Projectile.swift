@@ -6,7 +6,7 @@ struct Projectile: View {
     Image(systemName: "staroflife")
     .resizable()
     .aspectRatio(contentMode: .fit)
-    .frame(width: 50)
+    .frame(width: 10)
     .foregroundColor(.green)
   }
 }

@@ -6,7 +6,7 @@ struct SpaceShip: View {
     Image(systemName: "paperplane.fill")
         .resizable()
         .aspectRatio(contentMode: .fit)
-        .frame(width: 100)
+        .frame(width: 30)
         .foregroundColor(.green)
   }
 }
