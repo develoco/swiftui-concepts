@@ -5,7 +5,8 @@ struct WrappingVStack<Content: View>: View {
   var alignment: HorizontalAlignment
   var spacing: CGFloat
   var content: [Content]
-  
+  @State private var width: CGFloat = 0
+
   @inlinable public init(alignment: HorizontalAlignment = .center, spacing: CGFloat = 0, content: () -> [Content]) {
     self.alignment = alignment
     self.spacing = spacing
@@ -13,14 +14,25 @@ struct WrappingVStack<Content: View>: View {
   }
 
   var body: some View {
-    GeometryReader { proxy in
+    GeometryReader { p in
       WrappingStack(
-        height: proxy.frame(in: .global).height,
+        height: p.frame(in: .global).height,
         horizontalAlignment: self.alignment,
         spacing: self.spacing,
         content: self.content
       )
+      .anchorPreference(
+        key: SizePref.self,
+        value: .bounds,
+        transform: {
+          p[$0].size
+        }
+      )
     }
+    .frame(width: width)
+    .onPreferenceChange(SizePref.self, perform: {
+      self.width = $0.width
+    })
   }
 }
 
