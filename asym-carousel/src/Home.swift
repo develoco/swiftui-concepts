@@ -6,9 +6,9 @@ struct Home: View {
     NavigationView {
       VStack {
         VStack {
-          LoopCarousel(cards: ["foo", "bar", "baz"], current: 3, loop: true)
-          LoopCarousel(cards: ["foo", "bar", "baz"], current: 3, horizontalAlignment: .leading, peekOffset: 32, loop: true)
-          LoopCarousel(cards: ["foo", "bar", "baz"], current: 3, horizontalAlignment: .trailing, peekOffset: 32, loop: true)
+          LoopCarousel(cards: ["foo", "bar", "baz"], initialSelection: 4, loop: true)
+          LoopCarousel(cards: ["foo", "bar", "baz"], horizontalAlignment: .leading, peekOffset: 32, loop: true)
+          LoopCarousel(cards: ["foo", "bar", "baz"], initialSelection: 2, horizontalAlignment: .trailing, peekOffset: 32, loop: true)
         }.navigationBarTitle("Asymmetric Carousel")
       }
     }
