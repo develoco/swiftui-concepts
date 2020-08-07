@@ -43,15 +43,16 @@ struct WrappingHStack_Previews: PreviewProvider {
       Text("Header")
       Spacer()
       WrappingHStack(alignment: .bottom, spacing: 10) {[
-          Color.red.frame(width: 100, height: 50),
-          Color.gray.frame(width: 80, height: 50),
-          Color.green.frame(width: 150, height: 30),
-          Color.yellow.frame(width: 150, height: 70),
-          Color.orange.frame(width: 50, height: 50),
-          Color.purple.frame(width: 50, height: 50),
-          Color.blue.frame(width: 50, height: 50),
-          Color.gray.frame(width: 50, height: 50),
-          Color.green.frame(width: 50, height: 50),
+          AnyView(Color.red.frame(width: 100, height: 50)),
+          AnyView(Spacer()),
+          AnyView(Color.gray.frame(width: 80, height: 50)),
+          AnyView(Color.green.frame(width: 150, height: 30)),
+//          Color.yellow.frame(width: 150, height: 70),
+//          Color.orange.frame(width: 50, height: 50),
+//          Color.purple.frame(width: 50, height: 50),
+//          Color.blue.frame(width: 50, height: 50),
+//          Color.gray.frame(width: 50, height: 50),
+//          Color.green.frame(width: 50, height: 50),
       ]}
       .frame(width: 350)
       .border(Color.black, width: 1)
